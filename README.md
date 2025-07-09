@@ -72,3 +72,83 @@ Interoperability: Cities use varied hardware/software from different vendors, ma
 
 📚 Real-world: Barcelona uses AI-IoT to optimize bus traffic and reduce emissions.
 
+
+Smart Agriculture System Proposal: AI-IoT-Based Crop Yield Prediction
+🎯 Objective:
+To develop a smart farming system that predicts crop yields using real-time sensor data and machine learning, enabling data-driven decision-making for smallholder farmers.
+
+🛠️ Components:
+IoT Layer:
+
+Soil Moisture Sensor (capacitive)
+
+Soil pH Sensor
+
+DHT11 (Temperature + Humidity)
+
+LDR (Sunlight)
+
+Optional: Rain Sensor, NDVI drone sensor
+
+AI Layer:
+
+Model Type: Random Forest Regressor (for better handling of non-linearities)
+
+Input Features: Real-time sensor data
+
+Output: Predicted crop yield (e.g., maize) in kg/acre
+
+📊 Data Collection:
+Weekly sensor readings
+
+Historical crop yield records
+
+Weather API data (optional for extended features)
+
+📉 Expected Benefits:
+Accurate yield forecasts
+
+Optimized irrigation and fertilizer use
+
+Early detection of underperforming zones
+
+Sustainable farming through data insights
+
+⚠️ Challenges:
+Calibration of sensors in local conditions
+
+Need for offline inference for remote farms
+
+Cost of deploying sensors at scale
+
+4. 📈 Data Flow Diagram
+Here is a clean structure for your diagram (we can generate this as a PNG too):
+
+pgsql
+Copy
+Edit
+     +------------------------+
+     |     IoT Sensors        |
+     |------------------------|
+     | Soil Moisture, pH, etc |
+     +----------+-------------+
+                |
+         Sensor Data (MQTT/HTTP)
+                |
+     +----------v-------------+
+     |   Edge Device (ESP32)  |
+     +----------+-------------+
+                |
+      Preprocessed & Sent to Cloud
+                |
+     +----------v-------------+
+     |     AI Model (Cloud)   |
+     | Random Forest Regressor|
+     +----------+-------------+
+                |
+         Predicted Crop Yield
+                |
+     +----------v-------------+
+     |   Farmer Dashboard     |
+     +------------------------+
+
